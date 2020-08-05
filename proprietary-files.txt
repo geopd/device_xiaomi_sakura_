@@ -1875,3 +1875,9 @@ vendor/lib64/libqcrilFramework.so|d0d78f822220ee64df0c277bf3470d13e9561c65
 vendor/lib64/libril-qc-hal-qmi.so|c729644ed0b8428d82588f2000ff3b42af165f3b
 vendor/lib64/qcrild_librilutils.so|22ae52ea7750c9011e3880852d800d94d54b030e
 
+# Thermal - from olive
+vendor/bin/thermal-engine|7b59145e9e75cdc8b491f2ed7a04c0880899fc74
+-vendor/lib/libthermalclient.so|2c91276835c185e47a66916d24b3adc98b17e6eb
+-vendor/lib64/libthermalclient.so|faf92c38d52487cb8fa350f1ec786af17ac716cb
+vendor/lib64/libthermalfeature.so|8306e4bc55a4b9c7cb52a19fed11a9f48a604444
+

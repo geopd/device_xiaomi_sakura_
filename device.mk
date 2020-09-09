@@ -156,8 +156,10 @@ PRODUCT_PACKAGES += \
 
 # Dex
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUI \
-    NexusLauncherRelease
+    Launcher3QuickStep \
+    Lawnchair \
+    Settings \
+    SystemUI
 
 # Display
 PRODUCT_PACKAGES += \

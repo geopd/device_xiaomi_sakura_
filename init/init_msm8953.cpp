@@ -51,6 +51,24 @@ char const *heapminfree;
 char const *heapmaxfree;
 char const *heaptargetutilization;
 
+void property_override(char const prop[], char const value[])
+{
+    prop_info *pi;
+
+    pi = (prop_info*) __system_property_find(prop);
+    if (pi)
+        __system_property_update(pi, value, strlen(value));
+    else
+        __system_property_add(prop, strlen(prop), value, strlen(value));
+}
+
+void property_override_triple(char const product_prop[], char const system_prop[], char const vendor_prop[], char const value[])
+{
+    property_override(product_prop, value);
+    property_override(system_prop, value);
+    property_override(vendor_prop, value);
+}
+
 void check_device()
 {
     struct sysinfo sys;
@@ -94,4 +112,9 @@ void vendor_load_properties()
     property_set("dalvik.vm.heaptargetutilization", heaptargetutilization);
     property_set("dalvik.vm.heapminfree", heapminfree);
     property_set("dalvik.vm.heapmaxfree", heapmaxfree);
+
+    // fingerprint
+    property_override("ro.build.description", "tissot-user 8.0.0 OPR1.170623.026 8.1.10 release-keys");
+    property_override_triple("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.vendor.build.fingerprint", "google/coral/coral:10/QQ3A.200805.001/6578210:user/release-keys");
+    property_override("ro.boot.verifiedbootstate", "green");
 }
